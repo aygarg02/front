@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Rfmid.css';
 import Loader from './Loader';
-
+import homeImage from '../static/public/down.png';
 const Rfmid = () => {
     const [data, setData] = useState({});
     const [images, setImages] = useState({});
@@ -71,7 +71,7 @@ const Rfmid = () => {
                     <div key={index} className="button-wrapper">
                         <button onClick={() => { setPart(key); loadImagesForKey(key); }}>
                             <center> Load Images for {key} </center>
-                            <img className="button-icon" src='./down.png' alt="Arrow Icon" style={{ filter: 'brightness(0) invert(1)' }} />
+                            <img className="button-icon" src={ homeImage } alt="Arrow Icon" style={{ filter: 'brightness(0) invert(1)' }} />
                         </button>
                         
                         {placeholderVisible === key && <div className="placeholder"><Loader /></div>}
