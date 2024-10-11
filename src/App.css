@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+/* App.css */
+
+/* Style the sidebar container */
+.sidebar {
+  height: 100vh; /* Full-height sidebar */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Make the sidebar fixed */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Dark background */
+  padding-top: 20px; /* Padding on top */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Style the links in the sidebar */
+.sidebar ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar ul li {
+
+  padding: 10px;
+  text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.sidebar ul li a {
+
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  background-color: #575757; /* Add a hover effect */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Style the content area */
+.content {
+  margin-left: 220px; 
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar ul {
+
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  font-size: 15px;
+  position: relative; /* Important for dropdown positioning */
+}
+
+.dataset-dropdown .dropdown-content {
+  display: none; /* Hide the dropdown by default */
+  position: absolute;
+  left: 100%; /* Position it to the right of the parent */
+  top: 0;
+  background-color: #333; /* Dark background for dropdown */
+  min-width: 100px; /* Minimum width */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  z-index: 1; /* Make sure it appears above other elements */
+}
+
+.dataset-dropdown .dropdown-content li {
+  padding: 10px;
+}
+
+.dataset-dropdown .dropdown-content li a {
+  color: white; /* White text for dropdown links */
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+}
+
+.dataset-dropdown .dropdown-content li a:hover {
+  background-color: #575757; /* Highlight background on hover */
+}
+
+.dataset-dropdown:hover .dropdown-content {
+  display: block; /* Show dropdown on hover */
 }

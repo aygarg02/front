@@ -1,0 +1,33 @@
+.search-bar {
+    display: flex; /* Align items in a row */
+    width: 100%; /* Full width */
+}
+
+.search-dropdown {
+    flex: 0 0 15%; /* Set dropdown to take 15% of the available width */
+    padding: 10px; /* Add padding */
+    height: 40px; /* Set the same height as input and button */
+    margin-right: 10px; /* Space between dropdown and input */
+}
+
+.search-input {
+    flex: 0 0 65%; /* Input takes 65% of the available width */
+    padding: 10px; /* Add padding */
+    margin-right: 10px; /* Space between input and button */
+    box-sizing: border-box; /* Include padding in width calculation */
+    height: 40px; /* Set height */
+}
+
+.search-button {
+    flex: 0 0 20%; /* Button takes 20% of the available width */
+    padding: 10px; /* Add padding */
+    height: 40px; /* Set height */
+    background-color: #333; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer on hover */
+}
+
+.search-button:hover {
+    background-color: #555; /* Change color on hover */
+}
