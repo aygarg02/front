@@ -12,7 +12,7 @@
 
 .dataset-box {
     margin-left: 100px; 
-    background-color: rgb(38, 38, 38);
+    background-color: rgb(30, 29, 29);
     border: 1px solid #ecf0f1; /* Light grey/white border */
     border-radius: 18px; /* Rounded corners */
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.7); /* Light blue shadow for depth */
@@ -22,6 +22,9 @@
     width: 350px; /* Fixed width */
     transition: transform 0.3s; /* Smooth hover effect */
     color: #fbfeff; /* Light text color */
+}
+.dataset-box p {
+    color: #ecf0f1; /* Light grey text color */
 }
 
 

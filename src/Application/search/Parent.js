@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import Search from './Search'; // Adjust the import path as needed
 import './Parent.css'
+import Stack from '@mui/joy/Stack';
+import LinearProgress from '@mui/joy/LinearProgress';
 function Parent() {
     const [results, setResults] = useState([]);
     const [load,setLoad]=useState(false);
+    const [clicked,setClicked]=useState(false);
     const handleSearch = async ({ query, selectedOption }) => {
         try {
+            setClicked(true);
+            
+          
             const response = await fetch(`https://jpvc91vn-8080.inc1.devtunnels.ms/data?query=${encodeURIComponent(selectedOption)}&searchFor=${encodeURIComponent(query)}`, {
                 method: 'GET',
                 headers: {
@@ -33,9 +39,20 @@ function Parent() {
            
             <Search onSearch={handleSearch} />
 
-
+          {
+            clicked && !load &&  (
+<Stack spacing={2} sx={{ flex: 1 }}>
+      {/* <LinearProgress variant="solid" /> */}
+      {/* <LinearProgress variant="soft" /> */}
+      {/* <LinearProgress variant="outlined" /> */}
+      <LinearProgress variant="plain" />
+    </Stack>
+            )
+          }
             <div className="results">
-                {load &&  results.length>0 && 
+                {load
+                 &&  results.length>0 
+                 && 
             <table className="response-table">
                         <thead>
                             <tr>
@@ -61,8 +78,9 @@ function Parent() {
                         </tbody>
                         
                     </table>
+
                         }
-            {results.length===0 && <center>No record found...</center>}
+            {results.length===0 &&load && <center>No record found...</center>}
             </div>
         </div>
     );

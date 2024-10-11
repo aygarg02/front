@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Rfmid.css';
 import Loader from './Loader';
 import homeImage from '../static/public/down.png';
+import Ske from './Ske';
 const Rfmid = () => {
     const [data, setData] = useState({});
     const [images, setImages] = useState({});
@@ -14,6 +15,8 @@ const Rfmid = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                
+      
                 // Use Localtunnel URL
                 const response = await fetch('https://jpvc91vn-8080.inc1.devtunnels.ms/api/images/');
                 if (!response.ok) {
@@ -59,7 +62,7 @@ const Rfmid = () => {
         }
     };
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <div><Ske/></div>;
     if (error) return <div>Error: {error}</div>;
 
     return (
