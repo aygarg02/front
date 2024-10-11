@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/front/static/css/main.724aea95.css",
+    "main.js": "/front/static/js/main.aa4707dc.js",
+    "static/js/453.80efc53e.chunk.js": "/front/static/js/453.80efc53e.chunk.js",
+    "static/media/bkg_AYUSH3.jpg": "/front/static/media/bkg_AYUSH3.ed8b30493a2609c87dc2.jpg",
+    "index.html": "/front/index.html",
+    "main.724aea95.css.map": "/front/static/css/main.724aea95.css.map",
+    "main.aa4707dc.js.map": "/front/static/js/main.aa4707dc.js.map",
+    "453.80efc53e.chunk.js.map": "/front/static/js/453.80efc53e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.724aea95.css",
+    "static/js/main.aa4707dc.js"
+  ]
+}
