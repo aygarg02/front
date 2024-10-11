@@ -1,12 +1,10 @@
 /* Home.css */
 
-
 .home {
-    
     height: 100vh; 
     /* Full height of the viewport */
     
-    background-image: url('E:\myProject\projectMeeraMam\Frontend\front\public\bkg_AYUSH3.jpg'); /* Use relative path from the public folder */
+    background-image: url('../static/public/bkg_AYUSH3.jpg'); /* Relative path to the image */
     background-size: contain; /* Change this to contain if you want the whole image visible */
     background-position: center; 
     /* Center the image */
@@ -17,8 +15,6 @@
     color: black; /* Adjust text color to be visible */
     text-shadow: 2px 2px 5px red;
     text-align: center;
-    /* padding: 0px; */
-
 }
 
 h1 {
