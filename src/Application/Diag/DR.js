@@ -22,7 +22,7 @@ const DR = () => {
 
     setLoading(true);
     const formData = new FormData();
-    formData.append('file', image);
+    formData.append('image', image);
 
     try {
       // Fetch prediction from the first API
