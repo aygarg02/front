@@ -11,7 +11,7 @@ import Login from './Application/WrtP/Entry';
 import HR from './Application/HR';
 import Rfmid from './Application/Rfmid';
 import { useSelector } from "react-redux"; // Import useSelector
-
+import SignUp from './Application/WrtP/SignUp'
 // Import images
 import homeImage from './static/public/home.png';
 import teamImage from './static/public/people.png';
@@ -103,6 +103,7 @@ function App() {
               <Route path="/Login" element={<Login />} />
               <Route path="/Search" element={<Search />} />
               <Route path="/DR" element={<HR />} />
+              <Route path="/SignUp"  element={<SignUp />} />
             </Routes>
           </div>
         </div>

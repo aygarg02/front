@@ -11,12 +11,14 @@ const Rfmid = () => {
     const [fetching, setFetching] = useState(false);
     const [placeholderVisible, setPlaceholderVisible] = useState(null);
     const [part, setPart] = useState(null);
-
+     function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      
     useEffect(() => {
         const fetchData = async () => {
             try {
-                
-      
+     
                 // Use Localtunnel URL
                 const response = await fetch('https://jpvc91vn-8080.inc1.devtunnels.ms/api/images/');
                 if (!response.ok) {

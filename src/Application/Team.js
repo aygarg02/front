@@ -10,7 +10,7 @@ import member4 from '../static/public/Tony.png';
 function Team() {
   return (
     <>
-      <h1 style={{ textAlign: 'center' }}>Member Details</h1> {/* Centering the text */}
+     <b> <h1 style={{ textAlign: 'center' }}> Member Details </h1> </b>{/* Centering the text */}
 
       {/* Team Member 1 */}
       <div className="team-member">

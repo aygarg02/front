@@ -1,0 +1,141 @@
+/* Styling for the login form */
+.login-container {
+    max-width: 400px;
+    margin: 110px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures it is above other content */
+}
+
+/* Pop-up content */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    max-width: 500px;
+    width: 80%;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the response data table */
+.response-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.response-table th, .response-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.response-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.response-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.response-table tr:hover {
+    background-color: #d8cece;
+}
+.btn-download {
+    padding: 8px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    background-color: #218838;
+}
+
+.response-table td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Additional styling for better mobile responsiveness */
+@media (max-width: 600px) {
+    .response-table thead {
+        display: none;
+    }
+    
+    .response-table, .response-table tbody, .response-table tr, .response-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .response-table tr {
+        margin-bottom: 10px;
+    }
+
+    .response-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .response-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        text-align: left;
+        font-weight: bold;
+    }
+}

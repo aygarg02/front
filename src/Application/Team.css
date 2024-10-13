@@ -3,7 +3,11 @@
     margin-left: 220px; 
     padding: 20px;  
   } */
-
+h1{
+    text-align: center;
+    font-size: 50px;
+    
+}
 .team-member {
     display: flex; /* Use Flexbox for layout */
     align-items: center; /* Align items vertically centered */

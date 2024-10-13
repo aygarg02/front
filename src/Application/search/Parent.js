@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Search from './Search'; // Adjust the import path as needed
 import './Parent.css'
 import Stack from '@mui/joy/Stack';
+import { Navigate } from 'react-router-dom';
 import LinearProgress from '@mui/joy/LinearProgress';
 function Parent() {
     const [results, setResults] = useState([]);
@@ -57,9 +58,9 @@ function Parent() {
                         <thead>
                             <tr>
                                 <th>Serial No:</th>
+                                <th>Name</th>
+                                <th>Email</th>
                                 <th>Patient ID</th>
-                                <th>name</th>
-                                <th>email</th>
                                 <th>Result</th>
                             </tr>
                         </thead>

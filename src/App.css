@@ -37,10 +37,11 @@
 }
 
 /* Style the content area */
-.content {
+ .content {
   margin-left: 220px; 
-  padding: 20px;
-}
+  /* padding: 20px; */
+  margin-top: 0px;
+} 
 
 .sidebar ul {
 

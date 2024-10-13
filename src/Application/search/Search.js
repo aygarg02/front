@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './search.css';
-
+import { useNavigate } from 'react-router-dom'; //
 function Search({ onSearch }) {
+    const navigate = useNavigate(); 
     const [query, setQuery] = useState('');
     const [selectedOption, setSelectedOption] = useState('Email'); // Set default value for dropdown
 
@@ -16,6 +17,9 @@ function Search({ onSearch }) {
     const handleSearch = (event) => {
         event.preventDefault();
         onSearch({ query, selectedOption }); // Pass both query and selected option
+    };
+    const handleOnClick = () => {
+        navigate('/signup'); // Navigate to SignUp URL
     };
 
     return (
@@ -34,6 +38,7 @@ function Search({ onSearch }) {
                     className="search-input"
                 />
                 <button type="submit" className="search-button">Search</button>
+               
             </form>
         </div>
     );

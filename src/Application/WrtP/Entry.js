@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import './Entry.css';
 import Skeleton from '@mui/material/Skeleton';
 import Box from '@mui/material/Box';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
 const Entry = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState(''); 
     const [responseData, setResponseData] = useState(null); 
     const [Clicked, setClicked] = useState(false); 
+
+    const navigate = useNavigate(); // Initialize useNavigate
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -14,11 +18,8 @@ const Entry = () => {
         try {
             console.log("Request started");
 
-            // Set Clicked to true before the request starts
-            setClicked(true);
+            setClicked(true); // Set Clicked to true before the request starts
 
-         
-            
             // Create the URL with query parameters
             const url = `https://jpvc91vn-8080.inc1.devtunnels.ms/detailsaddOns?name=${username}&email=${email}`;
 
@@ -40,8 +41,7 @@ const Entry = () => {
         } catch (error) {
             console.error('Error:', error);
         } finally {
-            // Reset Clicked to false after the request completes
-            setClicked(false);
+            setClicked(false); // Reset Clicked to false after the request completes
         }
     };
 
@@ -84,9 +84,14 @@ const Entry = () => {
         }
     };
 
+    // Function to navigate to SignUp URL
+    const handleSignUpClick = () => {
+        navigate('/signup'); // Navigate to SignUp URL
+    };
+
     return (
         <>
-            {!responseData && !Clicked ? ( 
+            {!responseData && !Clicked ? (
                 // Show the form if responseData is null and Clicked is false
                 <div className="login-container">
                     <h2><b>Search for Patient:</b></h2>
@@ -113,22 +118,19 @@ const Entry = () => {
                         </div>
                         <button type="submit" className="btn">Login</button>
                     </form>
+                    <button onClick={handleSignUpClick}>SignUp</button> {/* Button to switch to SignUp URL */}
                 </div>
             ) : Clicked ? (
                 // Show a loading message while waiting
                 <Box sx={{ width: 300, height: 500 }}> {/* Set width and height appropriately */}
-              
-                <Skeleton variant="rectangular" width={500} height={25}  style={{marginTop:30}} />
-                
-                <Skeleton variant="rectangular" width={1100} height={50} animation="wave" style={{ marginTop: 30 }} />
-                
-                
-                <Skeleton variant="rectangular" width={1100} height={75} animation={false} style={{ marginTop: 3}} />
-                <Skeleton variant="rectangular" width={1100} height={75} animation={true} style={{ marginTop: 3}} />
-                <Skeleton variant="rectangular" width={1100} height={75} animation={false} style={{ marginTop: 3}} />
-                <Skeleton variant="rectangular" width={1100} height={75} animation={true} style={{ marginTop: 3}} />
-              </Box>
-            ) : (
+                    <Skeleton variant="rectangular" width={500} height={25}  style={{marginTop:30}} />
+                    <Skeleton variant="rectangular" width={1100} height={50} animation="wave" style={{ marginTop: 30 }} />
+                    <Skeleton variant="rectangular" width={1100} height={75} animation={false} style={{ marginTop: 3}} />
+                    <Skeleton variant="rectangular" width={1100} height={75} animation={true} style={{ marginTop: 3}} />
+                    <Skeleton variant="rectangular" width={1100} height={75} animation={false} style={{ marginTop: 3}} />
+                    <Skeleton variant="rectangular" width={1100} height={75} animation={true} style={{ marginTop: 3}} />
+                </Box>
+            ) : responseData.length > 0 ? (
                 // Display the responseData when available
                 <div>
                     <h3>Details of Patient: {username.toUpperCase()}</h3>
@@ -166,7 +168,7 @@ const Entry = () => {
                         </tbody>
                     </table>
                 </div>
-            )}
+            ) : null}
         </>
     );
 };
