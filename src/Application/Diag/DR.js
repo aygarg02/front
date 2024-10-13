@@ -26,7 +26,7 @@ const DR = () => {
 
     try {
       // Fetch prediction from the first API
-      const response = await fetch('http://10.87.59.149:5000/api/predict', {
+      const response = await fetch('https://zgsn772h-9800.inc1.devtunnels.ms/predict', {
         method: 'POST',
         body: formData,
       });
@@ -35,7 +35,7 @@ const DR = () => {
 
       const data = await response.json(); // Expecting JSON response
       setResult(data.predicted_label); // Update result
-console.log(patientId);
+      console.log(patientId);
       // Prepare second form data to save the result
       const formData1 = new FormData();
       formData1.append('file', image); // Add image file
