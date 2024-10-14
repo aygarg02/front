@@ -6,7 +6,10 @@ import { login  } from '../../GlobalState'; // Import your Redux action to updat
 
 const Login = () => {
     const dispatch = useDispatch(); // Use dispatch to trigger actions
-    const { isLoggedIn, patientId, name, email } = useSelector((state) => state.auth); // Access global state
+
+    const { isLoggedIn, patientId, name, email } = useSelector((state) => state.auth);
+    
+    // Access global state
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState(''); // Assuming password field acts as an email
     const [responseData, setResponseData] = useState(null); // State to hold the API response
@@ -15,41 +18,47 @@ const Login = () => {
         e.preventDefault();
         
         try {
-            // Create the URL with query parameters
             const url = `https://jpvc91vn-8080.inc1.devtunnels.ms/details?name=${username}&email=${password}`;
-
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-
+    
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-
-            const json = await response.json(); // Get the JSON response
-            setResponseData(json); // Save the response to state
-
-            // Dispatch action to update the global state with the response
-            console.log(json.name);
+    
+            const json = await response.json();
+            setResponseData(json);
+    
+            // Save login data to localStorage
+            localStorage.setItem('loginData', JSON.stringify({
+                patientId: json.patientId,
+                name: json.name,
+                email: json.email,
+                isLoggedIn: true,
+            }));
+    
+            // Dispatch the login action to Redux
             dispatch(login({
                 patientId: json.patientId,
                 name: json.name,
                 email: json.email,
                 isLoggedIn: true,
             }));
-
+    
             console.log('Request successful:', json);
         } catch (error) {
             console.error('Error:', error);
         }
     };
+    
 
     return (
         <div className="login-container">
-            <h2>Login</h2>
+            <h2><b>Doctor Login</b></h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username">Username</label>
@@ -74,12 +83,7 @@ const Login = () => {
                 <button type="submit" className="btn">Login</button>
             </form>
 
-            {responseData && (
-                <div>
-                    <h3>Response:</h3>
-                    <pre>{JSON.stringify(responseData, null, 2)}</pre>
-                </div>
-            )}
+          
 
             
         </div>

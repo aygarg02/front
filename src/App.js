@@ -6,8 +6,8 @@ import DataSet from './Application/DataSet';
 import Anotation from './Application/Anotation';
 import Show from './Application/Diag/Show';
 import Patient from './Application/Patient';
-import Search from './Application/search/Parent';
-import Login from './Application/WrtP/Entry';
+import Search from './Application/search/Show';
+import Login from './Application/WrtP/Show';
 import HR from './Application/HR';
 import Rfmid from './Application/Rfmid';
 import { useSelector } from "react-redux"; // Import useSelector

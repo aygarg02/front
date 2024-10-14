@@ -1,26 +1,43 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
+// Load the authentication state from localStorage
+const storedLoginData = localStorage.getItem('loginData');
+const initialAuthState = storedLoginData
+  ? JSON.parse(storedLoginData) // If data exists in localStorage, use it
+  : {
+      isLoggedIn: false,  // Default: user is not logged in
+      patientId: null,    // Default: no patientId
+      name: '',           // Default: no name
+      email: '',          // Default: no email
+  };
+
 // Create a slice for the authentication state
 const authSlice = createSlice({
     name: 'auth',
-    initialState: {
-        isLoggedIn: false, // Boolean to indicate if the user is logged in
-        patientId: null,   // ID of the patient (can be null if not set)
-        name: '',          // Patient's name (initially an empty string)
-        email: '',         // Patient's email (initially an empty string)
-    },
+    initialState: initialAuthState, // Initialize state from localStorage or defaults
     reducers: {
         login: (state, action) => {
             state.isLoggedIn = true;
             state.patientId = action.payload.patientId;
             state.name = action.payload.name;
             state.email = action.payload.email;
+
+            // Save login data to localStorage
+            localStorage.setItem('loginData', JSON.stringify({
+                isLoggedIn: true,
+                patientId: action.payload.patientId,
+                name: action.payload.name,
+                email: action.payload.email,
+            }));
         },
         logout: (state) => {
             state.isLoggedIn = false;
             state.patientId = null;
             state.name = '';
             state.email = '';
+
+            // Remove login data from localStorage
+            localStorage.removeItem('loginData');
         },
     },
 });
