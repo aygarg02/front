@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './Application/Home';
 import Team from './Application/Team';
 import DataSet from './Application/DataSet';
@@ -11,7 +11,7 @@ import Login from './Application/WrtP/Show';
 import HR from './Application/HR';
 import Rfmid from './Application/Rfmid';
 import { useSelector } from "react-redux"; // Import useSelector
-import SignUp from './Application/WrtP/SignUp'
+import SignUp from './Application/WrtP/SignUp';
 // Import images
 import homeImage from './static/public/home.png';
 import teamImage from './static/public/people.png';
@@ -22,15 +22,15 @@ import eyeImage from './static/public/eye (1).png';
 import retiImage from './static/public/reti.JPG';
 
 function App() {
-  const { isLoggedIn, patientId, name, email } = useSelector((state) => state.auth);
+  const { isLoggedIn, name } = useSelector((state) => state.auth);
   return (
     <div className="App">
       <Router>
         <div className='parent'>
           <div className="sidebar">
-            {(isLoggedIn) && (
+            {isLoggedIn && (
               <div style={{ display: 'flex' }}>
-                <img src={retiImage} alt="Home" style={{ width: '30px', marginLeft: '10px' }} />
+                <img src={retiImage} alt="Profile" style={{ width: '30px', marginLeft: '10px' }} />
                 <b style={{ width: '30px', marginLeft: '15px', filter: 'brightness(0) invert(1)' }}>{name}</b>
               </div>
             )}
@@ -74,19 +74,19 @@ function App() {
               <li>
                 <Link to="/Login" style={{ display: 'flex', alignItems: 'center' }}>
                   Patient
-                  <img src={toolsImage} alt="Anotation" style={{ width: '20px', marginLeft: '10px', filter: 'brightness(0) invert(1)' }} />
+                  <img src={toolsImage} alt="Patient" style={{ width: '20px', marginLeft: '10px', filter: 'brightness(0) invert(1)' }} />
                 </Link>
               </li>
               <li>
                 <Link to="/Search" style={{ display: 'flex', alignItems: 'center' }}>
                   Search
-                  <img src={toolsImage} alt="Anotation" style={{ width: '20px', marginLeft: '10px', filter: 'brightness(0) invert(1)' }} />
+                  <img src={toolsImage} alt="Search" style={{ width: '20px', marginLeft: '10px', filter: 'brightness(0) invert(1)' }} />
                 </Link>
               </li>
               <li>
                 <Link to="/Show" style={{ display: 'flex', alignItems: 'center' }}>
                   Diagnosis
-                  <img src={eyeImage} alt="DR" style={{ width: '20px', marginLeft: '10px', filter: 'brightness(0) invert(1)' }} />
+                  <img src={eyeImage} alt="Diagnosis" style={{ width: '20px', marginLeft: '10px', filter: 'brightness(0) invert(1)' }} />
                 </Link>
               </li>
             </ul>
@@ -103,7 +103,7 @@ function App() {
               <Route path="/Login" element={<Login />} />
               <Route path="/Search" element={<Search />} />
               <Route path="/DR" element={<HR />} />
-              <Route path="/SignUp"  element={<SignUp />} />
+              <Route path="/SignUp" element={<SignUp />} />
             </Routes>
           </div>
         </div>
