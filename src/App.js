@@ -37,7 +37,7 @@ function App() {
 
             <ul>
               <li>
-                <Link to="/front" style={{ display: 'flex', alignItems: 'center' }}>
+                <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
                   Home
                   <img src={homeImage} alt="Home" style={{ width: '20px', marginLeft: '10px', filter: 'brightness(0) invert(1)' }} />
                 </Link>
@@ -94,7 +94,7 @@ function App() {
 
           <div className="content">
             <Routes>
-              <Route path="/front" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/Team" element={<Team />} />
               <Route path="/rfmid" element={<Rfmid />} />
               <Route path="/DataSet" element={<DataSet />} />
