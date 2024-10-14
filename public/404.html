@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; URL='./index.html'" />
+    <script type="text/javascript">
+      // Get the current path, search, and hash from the URL
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+
+      // Redirect to /front and append the original path, search, and hash
+      window.location.href = "/front" + (path ? path : "") + search + hash;
+    </script>
   </head>
   <body>
   </body>
