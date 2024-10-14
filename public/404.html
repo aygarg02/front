@@ -2,13 +2,11 @@
 <html>
   <head>
     <script type="text/javascript">
-      // Get the current path, search, and hash from the URL
-      var path = window.location.pathname;
-      var search = window.location.search;
-      var hash = window.location.hash;
-
-      // Redirect to /front and append the original path, search, and hash
-      window.location.href = "/front" + (path ? path : "") + search + hash;
+      // Capture the full path from the current URL
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      consloe.log(path)
+      // Redirect to /front, preserving the route
+      window.location.href = "/front" + path;
     </script>
   </head>
   <body>
