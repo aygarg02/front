@@ -3,7 +3,10 @@ import './Rfmid.css';
 import Loader from './Loader';
 import homeImage from '../static/public/down.png';
 import Ske from './Ske';
+import { useSelector } from 'react-redux';
+import { selectLink } from '../GlobalState';
 const Rfmid = () => {
+    const link = useSelector(selectLink);
     const [data, setData] = useState({});
     const [images, setImages] = useState({});
     const [loading, setLoading] = useState(true);
@@ -20,7 +23,7 @@ const Rfmid = () => {
             try {
      
                 // Use Localtunnel URL
-                const response = await fetch('https://jpvc91vn-8080.inc1.devtunnels.ms/api/images/');
+                const response = await fetch(`${link}/api/images/`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -43,7 +46,7 @@ const Rfmid = () => {
         const imageArray = data[key];
         const limitedImages = imageArray.slice(0, 10);
         const imagePromises = limitedImages.map(image =>
-            fetch(`https://jpvc91vn-8080.inc1.devtunnels.ms/api/images/home?imageUrl=${encodeURIComponent(image.path)}`)
+            fetch(`${link}/api/images/home?imageUrl=${encodeURIComponent(image.path)}`)
                 .then(res => {
                     if (!res.ok) {
                         throw new Error('Image fetch failed');

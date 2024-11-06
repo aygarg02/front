@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import './DR.css';
 import { useSelector } from "react-redux"; // Import useSelector
 
+import { selectLink } from '../../GlobalState';
 const DR = () => {
   const [image, setImage] = useState(null);
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
+  const link = useSelector(selectLink);
   const { isLoggedIn, patientId, } = useSelector((state) => state.auth);
 
   const handleImageChange = (e) => {
@@ -45,7 +46,7 @@ const DR = () => {
       formData1.append('result', data.predicted_label); // Use predicted label directly
 
       // Send data to the save API
-      const response1 = await fetch('https://jpvc91vn-8080.inc1.devtunnels.ms/save', {
+      const response1 = await fetch(`${link}/save`, {
         method: 'POST',
         body: formData1,
       });

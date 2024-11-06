@@ -4,9 +4,10 @@ import './Login.css'; // Import the CSS file
 import { useSelector, useDispatch } from 'react-redux'; // Import useSelector and useDispatch
 import { login  } from '../../GlobalState'; // Import your Redux action to update global state
 
+import { selectLink } from '../../GlobalState';
 const Login = () => {
     const dispatch = useDispatch(); // Use dispatch to trigger actions
-
+    const link = useSelector(selectLink);
     const { isLoggedIn, patientId, name, email } = useSelector((state) => state.auth);
     
     // Access global state
@@ -18,7 +19,7 @@ const Login = () => {
         e.preventDefault();
         
         try {
-            const url = `https://jpvc91vn-8080.inc1.devtunnels.ms/details?name=${username}&email=${password}`;
+            const url = `${link}/details?name=${username}&email=${password}`;
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {

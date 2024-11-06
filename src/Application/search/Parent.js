@@ -4,7 +4,10 @@ import './Parent.css'
 import Stack from '@mui/joy/Stack';
 import { Navigate } from 'react-router-dom';
 import LinearProgress from '@mui/joy/LinearProgress';
+import { useSelector } from 'react-redux';
+import { selectLink } from '../../GlobalState';
 function Parent() {
+    const link = useSelector(selectLink);
     const [results, setResults] = useState([]);
     const [load,setLoad]=useState(false);
     const [clicked,setClicked]=useState(false);
@@ -13,7 +16,7 @@ function Parent() {
             setClicked(true);
             
           
-            const response = await fetch(`https://jpvc91vn-8080.inc1.devtunnels.ms/data?query=${encodeURIComponent(selectedOption)}&searchFor=${encodeURIComponent(query)}`, {
+            const response = await fetch(`${link}/data?query=${encodeURIComponent(selectedOption)}&searchFor=${encodeURIComponent(query)}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

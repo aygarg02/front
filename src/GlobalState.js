@@ -1,20 +1,24 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
+// Define the link as a constant
+const defaultLink = 'https://zgsn772h-8080.inc1.devtunnels.ms';
+
 // Load the authentication state from localStorage
 const storedLoginData = localStorage.getItem('loginData');
 const initialAuthState = storedLoginData
-  ? JSON.parse(storedLoginData) // If data exists in localStorage, use it
+  ? JSON.parse(storedLoginData)
   : {
-      isLoggedIn: false,  // Default: user is not logged in
-      patientId: null,    // Default: no patientId
-      name: '',           // Default: no name
-      email: '',          // Default: no email
+      isLoggedIn: false,
+      patientId: null,
+      name: '',
+      email: '',
+      link: defaultLink, // Add link to the initial state
   };
 
 // Create a slice for the authentication state
 const authSlice = createSlice({
     name: 'auth',
-    initialState: initialAuthState, // Initialize state from localStorage or defaults
+    initialState: initialAuthState,
     reducers: {
         login: (state, action) => {
             state.isLoggedIn = true;
@@ -28,6 +32,7 @@ const authSlice = createSlice({
                 patientId: action.payload.patientId,
                 name: action.payload.name,
                 email: action.payload.email,
+                link: defaultLink,
             }));
         },
         logout: (state) => {
@@ -45,10 +50,11 @@ const authSlice = createSlice({
 // Create the Redux store
 const store = configureStore({
     reducer: {
-        auth: authSlice.reducer, // Use the auth reducer from the slice
+        auth: authSlice.reducer,
     },
 });
 
-// Export actions and store
+// Export actions, store, and the link selector
 export const { login, logout } = authSlice.actions;
+export const selectLink = (state) => state.auth.link;
 export default store;

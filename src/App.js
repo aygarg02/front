@@ -31,7 +31,7 @@ function App() {
             {isLoggedIn && (
               <div style={{ display: 'flex' }}>
                 <img src={retiImage} alt="Profile" style={{ width: '30px', marginLeft: '10px' }} />
-                <b style={{ width: '30px', marginLeft: '15px', filter: 'brightness(0) invert(1)' }}>{name}</b>
+                <b style={{ width: '30px', marginLeft: '15px', filter: 'brightness(0) invert(1)' }}>{name.toUpperCase()}</b>
               </div>
             )}
 

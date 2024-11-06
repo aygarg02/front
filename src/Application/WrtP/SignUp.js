@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './SignUp.css';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectLink } from '../../GlobalState';
 export default function SignUp() {
+    const link = useSelector(selectLink);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [popUp, setPopUp] = useState(false);
@@ -29,7 +32,7 @@ export default function SignUp() {
         try {
             console.log("New entry");
             // Make sure there's no space in the URL
-            const url = `https://jpvc91vn-8080.inc1.devtunnels.ms/saveUser?name=${username}&email=${email}`;
+            const url = `${link}/saveUser?name=${username}&email=${email}`;
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {

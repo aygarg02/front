@@ -4,7 +4,10 @@ import Skeleton from '@mui/material/Skeleton';
 import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
+import { useSelector } from 'react-redux';
+import { selectLink } from '../../GlobalState';
 const Entry = () => {
+    const link = useSelector(selectLink);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState(''); 
     const [responseData, setResponseData] = useState(null); 
@@ -21,7 +24,7 @@ const Entry = () => {
             setClicked(true); // Set Clicked to true before the request starts
 
             // Create the URL with query parameters
-            const url = `https://jpvc91vn-8080.inc1.devtunnels.ms/detailsaddOns?name=${username}&email=${email}`;
+            const url = `${link}/detailsaddOns?name=${username}&email=${email}`;
 
             const response = await fetch(url, {
                 method: 'GET',
@@ -56,7 +59,7 @@ const Entry = () => {
             setClicked(true); // Set Clicked to true when downloading
 
             // Fetch the image from the API
-            const response = await fetch(`https://jpvc91vn-8080.inc1.devtunnels.ms/api/images/home?imageUrl=${imagePath}`, {
+            const response = await fetch(`${link}/api/images/home?imageUrl=${imagePath}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
