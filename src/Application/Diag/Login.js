@@ -13,7 +13,7 @@ const Login = () => {
     // Access global state
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState(''); // Assuming password field acts as an email
-    const [responseData, setResponseData] = useState(null); // State to hold the API response
+    const [responseData, setResponseData]   = useState(null); // State to hold the API response
 
     const handleSubmit = async (e) => {
         e.preventDefault();
