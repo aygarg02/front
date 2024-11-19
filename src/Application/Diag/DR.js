@@ -28,8 +28,8 @@ const DR = () => {
     try {
       // Fetch prediction from the first API
       const response = await fetch('https://zgsn772h-9800.inc1.devtunnels.ms/predict', {
-        method: 'POST',
-        body: formData,
+           method: 'POST',
+            body: formData,
       });
 
       if (!response.ok) throw new Error('Failed to fetch the prediction');
