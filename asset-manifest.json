@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/front/static/css/main.d7975f0d.css",
-    "main.js": "/front/static/js/main.2a11dd4a.js",
+    "main.js": "/front/static/js/main.6380862a.js",
     "static/js/453.80efc53e.chunk.js": "/front/static/js/453.80efc53e.chunk.js",
-    "static/media/Tony.png": "/front/static/media/Tony.faf065fb6ab0a4588108.png",
     "static/media/bkg_AYUSH3.jpg": "/front/static/media/bkg_AYUSH3.ed8b30493a2609c87dc2.jpg",
     "static/media/8.png": "/front/static/media/8.a73b291de5b6034b0a66.png",
     "static/media/image.png": "/front/static/media/image.ba3c7d5d20d3db6f80ff.png",
     "static/media/c.png": "/front/static/media/c.91777b2e424093171af1.png",
+    "static/media/suvendu.jpg": "/front/static/media/suvendu.a539b16ae9506e776090.jpg",
     "static/media/reti.JPG": "/front/static/media/reti.ae2ac535c31119f1e8b7.JPG",
     "static/media/home.png": "/front/static/media/home.411542c5193f38212530.png",
     "static/media/tools.png": "/front/static/media/tools.ac9667eeba65b41ba5ff.png",
@@ -17,11 +17,11 @@
     "static/media/arrow-right (1).png": "/front/static/media/arrow-right (1).4b66ee3f3cd9980ceaba.png",
     "index.html": "/front/index.html",
     "main.d7975f0d.css.map": "/front/static/css/main.d7975f0d.css.map",
-    "main.2a11dd4a.js.map": "/front/static/js/main.2a11dd4a.js.map",
+    "main.6380862a.js.map": "/front/static/js/main.6380862a.js.map",
     "453.80efc53e.chunk.js.map": "/front/static/js/453.80efc53e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d7975f0d.css",
-    "static/js/main.2a11dd4a.js"
+    "static/js/main.6380862a.js"
   ]
 }
