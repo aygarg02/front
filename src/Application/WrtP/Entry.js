@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { useSelector } from 'react-redux';
 import { selectLink } from '../../GlobalState';
 const Entry = () => {
-    const link1 = useSelector(selectLink);
+    const link = useSelector(selectLink);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState(''); 
     const [responseData, setResponseData] = useState(null); 
@@ -24,7 +24,7 @@ const Entry = () => {
             setClicked(true); // Set Clicked to true before the request starts
 
             // Create the URL with query parameters
-            const url = `${link1}/detailsaddOns?name=${username}&email=${email}`;
+            const url = `${link}/detailsaddOns?name=${username}&email=${email}`;
 
             const response = await fetch(url, {
                 method: 'GET',
@@ -52,12 +52,11 @@ const Entry = () => {
         const date = new Date(parseInt(timestamp)); // Convert timestamp to an integer
         return date.toLocaleString(); // Converts to a readable date string
     };
-
     const DownloadButton = async (imagePath) => {
         console.log("Downloading image:", imagePath);
         try {
             setClicked(true); // Set Clicked to true when downloading
-
+    
             // Fetch the image from the API
             const response = await fetch(`${link}/api/images/home?imageUrl=${imagePath}`, {
                 method: 'GET',
@@ -65,21 +64,21 @@ const Entry = () => {
                     'Content-Type': 'application/json',
                 },
             });
-
+    
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            console.log(response);
+    
             const blob = await response.blob(); // Get the image data as a blob
             const url = window.URL.createObjectURL(blob); // Create a URL for the image
-
+    
             // Create a temporary link element to trigger download
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', imagePath.split('/').pop()); // Set the file name for download
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link); // Remove the link after download
+            const tempLink = document.createElement('a'); // Renamed from `link` to `tempLink`
+            tempLink.href = url;
+            tempLink.setAttribute('download', imagePath.split('/').pop()); // Set the file name for download
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink); // Remove the link after download
         } catch (error) {
             console.error('Error downloading the image:', error);
         } finally {
