@@ -5,7 +5,8 @@ import './Team.css'; // Ensure you import the CSS file for styles
 import member1 from '../static/public/image.png';
 import member2 from '../static/public/c.png';
 import member3 from '../static/public/8.png';
-import member4 from '../static/public/Tony.png';
+import member4 from '../static/public/suvendu.jpg';
+
 
 function Team() {
   return (
