@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { useSelector } from 'react-redux';
 import { selectLink } from '../../GlobalState';
 const Entry = () => {
-    const link = useSelector(selectLink);
+    const link1 = useSelector(selectLink);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState(''); 
     const [responseData, setResponseData] = useState(null); 
@@ -24,7 +24,7 @@ const Entry = () => {
             setClicked(true); // Set Clicked to true before the request starts
 
             // Create the URL with query parameters
-            const url = `${link}/detailsaddOns?name=${username}&email=${email}`;
+            const url = `${link1}/detailsaddOns?name=${username}&email=${email}`;
 
             const response = await fetch(url, {
                 method: 'GET',
@@ -69,7 +69,7 @@ const Entry = () => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-
+            console.log(response);
             const blob = await response.blob(); // Get the image data as a blob
             const url = window.URL.createObjectURL(blob); // Create a URL for the image
 
