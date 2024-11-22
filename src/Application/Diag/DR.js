@@ -8,11 +8,17 @@ const DR = () => {
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const  [patientId,setPatientId]=useState('');
   const link = useSelector(selectLink);
-  const { isLoggedIn, patientId, } = useSelector((state) => state.auth);
+  // const { isLoggedIn, patientId, } = useSelector((state) => state.auth);
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
+    setResult('');
+    setError('');  
+  };
+  const handleidChange = (e) => {
+    setPatientId(e.target.value);
     setResult('');
     setError('');  
   };
@@ -64,12 +70,21 @@ const DR = () => {
     <div className="container">
       <h1>Image Upload and Prediction</h1>
       <form onSubmit={handleSubmit} className="form">
+      <input
+          type="text"
+            // Bind the ID value
+          onChange={handleidChange}
+          placeholder="Enter ID"
+          className="id-input"
+        />
+        <br></br>
         <input
           type="file"
           accept="image/*"
           onChange={handleImageChange}
           className="file-input"
         />
+      
         <button type="submit" className="submit-button" disabled={loading}>
           {loading ? 'Loading...' : 'Upload Image'}
         </button>

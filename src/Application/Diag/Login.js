@@ -19,7 +19,7 @@ const Login = () => {
         e.preventDefault();
         
         try {
-            const url = `${link}/details?name=${username}&email=${password}`;
+            const url = `${link}/api/doctor/login?email=${username}&password=${password}`;
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {
@@ -32,11 +32,12 @@ const Login = () => {
             }
     
             const json = await response.json();
+
             setResponseData(json);
     
             // Save login data to localStorage
             localStorage.setItem('loginData', JSON.stringify({
-                patientId: json.patientId,
+                patientId: json.doctorId,
                 name: json.name,
                 email: json.email,
                 isLoggedIn: true,
@@ -62,7 +63,7 @@ const Login = () => {
             <h2><b>Doctor Login</b></h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username">Email</label>
                     <input
                         type="text"
                         id="username"
@@ -72,7 +73,7 @@ const Login = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Password (or Email)</label>
+                    <label htmlFor="password">Password </label>
                     <input
                         type="text"
                         id="password"
