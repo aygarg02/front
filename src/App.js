@@ -10,6 +10,7 @@ import Search from './Application/search/Show';
 import Login from './Application/WrtP/Show';
 import HR from './Application/HR';
 import Rfmid from './Application/Rfmid';
+import Local from './Application/localization/Predict';
 import { useSelector } from "react-redux"; // Import useSelector
 import SignUp from './Application/WrtP/SignUp';
 // Import images
@@ -89,6 +90,12 @@ function App() {
                   <img src={eyeImage} alt="Diagnosis" style={{ width: '20px', marginLeft: '10px', filter: 'brightness(0) invert(1)' }} />
                 </Link>
               </li>
+              <li>
+                <Link to="/Local" style={{ display: 'flex', alignItems: 'center' }}>
+                  Localization
+                  <img src={eyeImage} alt="Diagnosis" style={{ width: '20px', marginLeft: '10px', filter: 'brightness(0) invert(1)' }} />
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -104,6 +111,8 @@ function App() {
               <Route path="/Search" element={<Search />} />
               <Route path="/DR" element={<HR />} />
               <Route path="/SignUp" element={<SignUp />} />
+              <Route path="/Local" element={<Local />} />
+
             </Routes>
           </div>
         </div>
