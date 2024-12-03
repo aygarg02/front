@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/front/static/css/main.d7975f0d.css",
-    "main.js": "/front/static/js/main.6380862a.js",
+    "main.css": "/front/static/css/main.13d3c64e.css",
+    "main.js": "/front/static/js/main.a4544c67.js",
     "static/js/453.80efc53e.chunk.js": "/front/static/js/453.80efc53e.chunk.js",
     "static/media/bkg_AYUSH3.jpg": "/front/static/media/bkg_AYUSH3.ed8b30493a2609c87dc2.jpg",
     "static/media/8.png": "/front/static/media/8.a73b291de5b6034b0a66.png",
@@ -16,12 +16,12 @@
     "static/media/people.png": "/front/static/media/people.5fecb62fef5fc5f889c5.png",
     "static/media/arrow-right (1).png": "/front/static/media/arrow-right (1).4b66ee3f3cd9980ceaba.png",
     "index.html": "/front/index.html",
-    "main.d7975f0d.css.map": "/front/static/css/main.d7975f0d.css.map",
-    "main.6380862a.js.map": "/front/static/js/main.6380862a.js.map",
+    "main.13d3c64e.css.map": "/front/static/css/main.13d3c64e.css.map",
+    "main.a4544c67.js.map": "/front/static/js/main.a4544c67.js.map",
     "453.80efc53e.chunk.js.map": "/front/static/js/453.80efc53e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7975f0d.css",
-    "static/js/main.6380862a.js"
+    "static/css/main.13d3c64e.css",
+    "static/js/main.a4544c67.js"
   ]
 }
