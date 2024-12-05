@@ -67,17 +67,23 @@ const Detail = ({ patientId }) => {
   if (!storeH || storeH.length === 0) {
     return <div className="loading">No data found</div>;
   }
+  
   const genratePdf = async (item) => {
     const doc = new jsPDF();
-  
-    // Add other content (headers, text, tables, etc.)
+    const image=`${link}/api/images/home?imageUrl=${encodeURIComponent(item.imagePath)}`;
+    // Add other content (headers, text, tables, etc.) // y x
     doc.addImage(member6, 'png', 110, 13, 20, 25);
     doc.addImage(member5, 'jpeg', 5, 10, 30, 33);
     doc.setFontSize(10);
     doc.text("Visvesvaraya National Institute of Technology", 32, 20);
     doc.setFontSize(8);
     doc.text("South Ambazari Road, Nagpur, Maharashtra", 32, 27);
-  
+    doc.setFontSize(10);
+    doc.text("All India Institute of Medical Sciences",135,20);
+    doc.setFontSize(8);
+    doc.text("MIHAN, Nagpur- 441108, Maharashtra, India", 135, 27);
+    doc.setLineWidth(0.5); // Line thickness
+    doc.line(10, 42 , 200, 42); 
     doc.setFontSize(14);
     doc.text("Report Generated On: " + new Date().toLocaleString(), 14, 50);
   
@@ -108,13 +114,24 @@ const Detail = ({ patientId }) => {
       theme: "grid",
     });
   
-    // Add Image
-    const img = new Image();
-    img.crossOrigin = "Anonymous"; // Ensure CORS compatibility
-    img.src = item.imagePath;
-  
-  
-     
+    // Add Image 
+    doc.setFontSize(15);
+
+    doc.text("Uploaded image :",14,159);
+   
+    doc.addImage(image, 'jpeg',14, 164, 80, 80);
+    doc.setFontSize(15);
+
+    doc.text("Result:",120,164);
+    doc.setFontSize(15);
+    var te=(item.result==='DR')?"Diabetic":" Age-Related Macular Degeneration";
+
+    doc.text(te,125,173);
+    doc.setFontSize(10);
+   
+    doc.setTextColor(255, 0, 0);
+    doc.text("*don't relay totally on this result kindly concern the doctor *",120,180);
+    //  
       // Footer
       doc.setFontSize(10);
       doc.text("Confidential - Do not distribute", 14, doc.internal.pageSize.height - 10);
