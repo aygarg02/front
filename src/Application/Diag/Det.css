@@ -7,14 +7,14 @@
     padding: 1px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(255, 105, 180, 0.5); /* Pink shadow */
+    box-shadow: 0 4px 6px rgba(105, 148, 255, 0.5); /* Pink shadow */
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
   }
   
   .card:hover {
     transform: translateY(10px); /* Moves the card up by 10px on hover */
-    box-shadow: 0 6px 12px rgba(255, 105, 180, 0.7); /* More intense shadow on hover */
+    box-shadow: 0 6px 12px rgba(95, 155, 227, 0.7); /* More intense shadow on hover */
   }
   
   
@@ -107,7 +107,7 @@
   }
   
   .table-container {
-    box-shadow: 2px 1px 6px rgba(255, 105, 180, 0.5),-2px 1px 6px rgba(255, 105, 180, 0.5);
+    box-shadow: 2px 1px 6px rgba(110, 108, 219, 0.5),-2px 1px 6px rgba(107, 113, 237, 0.5);
     width: 90%;               /* Keep the width of the table container at 90% of its parent */
     max-height: 400px;        /* Set a max-height for the container */
     overflow-y: auto;         /* Enable vertical scrolling */
@@ -121,7 +121,260 @@
     width: 100%;              /* Ensure the table fills the container's width */
     border-collapse: collapse; /* Optional: Improves table styling */
 }
+/* Modal Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Keeps the modal above the rest of the page */
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: #ffffff; /* Bright white for clear contrast */
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+  max-width: 400px;
+  width: 90%; /* Makes it responsive on smaller screens */
+  text-align: center;
+  z-index: 3; /* Ensures content is above the dim background */
+  animation: modalFadeIn 0.4s ease; /* Smooth fade-in effect */
+}
+
+/* Input File Style */
+input[type="file"] {
+  margin-top: 15px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Image Preview Section */
+.image-preview {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.image-preview h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.image-preview img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Actions */
+.modal-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  
+}
+
+.modal-actions button {
+  margin-left: 2px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-actions button:hover {
+  opacity: 0.9;
+}
+
+.modal-actions button:first-child {
+  background-color: #4caf50; /* Green for submit */
+  color: white;
+}
+
+.modal-actions button:first-child:hover {
+  background-color: #45a049;
+}
+
+.modal-actions button:last-child {
+  background-color: #f44336; /* Red for cancel */
+  color: white;
+}
+
+.modal-actions button:last-child:hover {
+  background-color: #e53935;
+}
+
+/* Animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 
   
-  
+  /* Global Styles */
+/* Modal Overlay for After Submit Pop-Up */
+.after-submit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Pop-Up Content */
+.after-submit-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+  animation: slideUp 0.4s ease-in-out;
+}
+
+/* Result Container */
+.result-container {
+  margin-bottom: 15px;
+  padding: 10px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 5px;
+}
+
+.result-value {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 5px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Image Preview */
+.after-submit-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #f0f0f0;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.after-submit-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text Over Image */
+.after-submit-image::after {
+  content: 'This image will be seen in your record area after refreshing the page.';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  width: 90%;
+}
+
+/* Buttons */
+.after-submit-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.after-submit-actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.after-submit-actions button.ok-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.after-submit-actions button.ok-btn:hover {
+  background-color: #45a049;
+}
+
+.after-submit-actions button.cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.after-submit-actions button.cancel-btn:hover {
+  background-color: #e53935;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
