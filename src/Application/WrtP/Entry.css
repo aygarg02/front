@@ -52,7 +52,22 @@
 .response-table th, .response-table td {
     border: 1px solid #ddd;
     padding: 12px 15px;
+    margin-right: 12px;
     text-align: left;
+}
+.button-handle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button-handle button{
+    margin-right: 10px;
+    padding: 8px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .response-table th {

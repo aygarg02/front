@@ -96,7 +96,7 @@ const Entry = () => {
             {!responseData && !Clicked ? (
                 // Show the form if responseData is null and Clicked is false
                 <div className="login-container">
-                    <h2><b>Search for Patient:</b></h2>
+                    <h2 style={{fontSize:'20px'}}><b>Search for Patient</b></h2>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
@@ -118,9 +118,12 @@ const Entry = () => {
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn">Login</button>
+                        <div className='button-handle'>
+                       <button type="submit" className="btn" >Login</button>
+                        <button onClick={handleSignUpClick}>SignUp</button> 
+                        </div>
                     </form>
-                    <button onClick={handleSignUpClick}>SignUp</button> {/* Button to switch to SignUp URL */}
+                   {/* Button to switch to SignUp URL */}
                 </div>
             ) : Clicked ? (
                 // Show a loading message while waiting
