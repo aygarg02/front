@@ -31,12 +31,14 @@ const DR = () => {
   return (
     (chan)?<div>
       <Det patientId={patientId}/>
-    </div>:
+    </div>
+    :
 
     <div className="container">
 
-      <h1>Enter the PatientId</h1>
-      <h2>For image upload</h2>
+      <h1>Search Patient Records</h1>
+
+
 
       <form onSubmit={handleSubmit} className="form">
       <input
@@ -50,7 +52,7 @@ const DR = () => {
         
       
         <button type="submit" className="submit-button" disabled={loading}>
-          {loading ? 'Loading...' : 'Upload Image'}
+          {loading ? 'Loading...' : 'Submit'}
         </button>
       </form>
       
