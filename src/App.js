@@ -1,7 +1,7 @@
 import './App.css';
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './Application/Home';
-import Team from './Application/Team';
+import Team from './Application/Team/Act';
 import DataSet from './Application/DataSet';
 import Anotation from './Application/Anotation';
 import Show from './Application/Diag/Show';
