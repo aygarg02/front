@@ -25,7 +25,7 @@ function Act() {
                     className={showAimsTeam ? "active-tab" : "inactive-tab"}
                     onClick={() => setShowAimsTeam(true)} // Show Aims Team
                 >
-                    Aims Team
+                    AIIMS Team
                 </span>
             </div>
 
